@@ -22,6 +22,8 @@ class PostmarkServiceProvider extends ServiceProvider
             return;
         }
 
+        $this->loadViewsFrom(__DIR__.'/../views', 'postmark');
+
         $this->mergeConfigFrom(__DIR__.'/../config/postmark.php', 'postmark');
 
         $this->app['swift.transport']->extend('postmark', function () {
